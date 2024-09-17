@@ -13,6 +13,9 @@ public final class LockTileState extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        saveDefaultConfig();
+        reloadConfig();
+
         PluginCommand lt = getCommand("lt");
         if (lt != null) {
             lt.setExecutor(new LTCommand());
