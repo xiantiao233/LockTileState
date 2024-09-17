@@ -18,4 +18,8 @@ public final class LockTileState extends JavaPlugin {
     public void onDisable() {
         // Plugin shutdown logic
     }
+
+    public static LockTileState getInstance() {
+        return getPlugin(LockTileState.class);
+    }
 }
