@@ -1,0 +1,6 @@
+name: LockTileState
+version: '1.0-SNAPSHOT'
+main: fun.xiantiao.lockTileState.LockTileState
+api-version: '1.18'
+authors: [ xiantiao ]
+description: 锁定物品
