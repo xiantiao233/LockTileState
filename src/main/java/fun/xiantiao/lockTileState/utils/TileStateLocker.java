@@ -45,6 +45,15 @@ public class TileStateLocker implements Lock {
         container.set(masterKey(), uuidDataType, master);
     }
 
+    @Override
+    public void update() {
+        PersistentDataContainer container = tileState.getPersistentDataContainer();
+        UUID master = getMaster();
+        if (master == null) return;
+        container.set(masterKey(), uuidDataType, master);
+        tileState.update();
+    }
+
     private NamespacedKey masterKey() {
         return new NamespacedKey(LockTileState.getInstance(),"lock-tileState-master");
     }

@@ -11,4 +11,6 @@ public interface Lock {
 
     @Nullable UUID getMaster();
     void setMaster(UUID master);
+
+    void update();
 }
