@@ -4,6 +4,7 @@ import fun.xiantiao.lockTileState.LockTileState;
 import fun.xiantiao.lockTileState.api.Lock;
 import fun.xiantiao.lockTileState.pdt.UUIDDataType;
 import org.bukkit.NamespacedKey;
+import org.bukkit.block.Block;
 import org.bukkit.block.TileState;
 import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
@@ -20,6 +21,13 @@ public class TileStateLocker implements Lock {
         this.tileState = tileState;
         this.container = tileState.getPersistentDataContainer();
         this.uuidDataType = new UUIDDataType();
+    }
+
+    public static TileStateLocker getInstance(Block block) {
+        if (block.getState() instanceof TileState tileState) {
+            return new TileStateLocker(tileState);
+        }
+        return null;
     }
 
     @Override
