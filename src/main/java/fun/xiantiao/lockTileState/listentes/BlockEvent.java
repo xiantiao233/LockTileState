@@ -1,6 +1,7 @@
 package fun.xiantiao.lockTileState.listentes;
 
 import fun.xiantiao.lockTileState.LockTileState;
+import fun.xiantiao.lockTileState.api.Lock;
 import fun.xiantiao.lockTileState.confs.LangConfig;
 import fun.xiantiao.lockTileState.utils.TileStateLocker;
 import org.bukkit.block.Block;
@@ -17,7 +18,7 @@ public class BlockEvent implements Listener {
         Player player = event.getPlayer();
         Block block = event.getBlock();
 
-        TileStateLocker locker = TileStateLocker.getInstance(block);
+        Lock locker = TileStateLocker.getInstance(block);
         if (locker == null) return;
 
         if (locker.getMaster() == null) return;
